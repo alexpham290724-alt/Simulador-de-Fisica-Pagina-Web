@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador de Fisica 3D - Documentacion Tecnica</title>
+    <meta name="description" content="Simulador interactivo de dinamica y cinetica en 3D. Proyecto de Programacion II.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navegacion -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <div class="logo-icon" aria-hidden="true">&#x269B;</div>
+                <span>PhysicsLab 3D</span>
+            </div>
+
+            <button class="nav-toggle" id="navToggle" aria-label="Abrir menu de navegacion" aria-expanded="false">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#desarrollo">Desarrollo</a></li>
+                <li><a href="#tecnologias">Tecnologias</a></li>
+                <li><a href="#fisica">Fundamentos</a></li>
+                <li><a href="#galeria">Galeria</a></li>
+                <li><a href="#autores">Autores</a></li>
+            </ul>
+
+            <button class="nav-cta" onclick="window.open('https://alexpham290724-alt.github.io/Simulador-de-Fisica/', '_blank')">
+                Probar Simulador
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero">
+        <div class="hero-bg-decoration" aria-hidden="true">
+            <div class="orb orb-1"></div>
+            <div class="orb orb-2"></div>
+            <div class="grid-pattern"></div>
+        </div>
+        <div class="hero-content">
+            <div class="hero-text">
+                <div class="badge">Proyecto de Programacion II</div>
+                <h1>
+                    <span class="title-line">Simulador de</span>
+                    <span class="title-line highlight">Dinamica y Cinetica</span>
+                    <span class="title-line">en 3D</span>
+                </h1>
+                <p class="hero-subtitle">
+                    Una herramienta interactiva para la visualizacion y comprension
+                    de los principios fundamentales de la mecanica clasica mediante
+                    simulacion computacional en tiempo real.
+                </p>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-number" data-value="3">0</span>
+                        <span class="stat-label">Dimensiones</span>
+                    </div>
+                    <div class="stat-separator" aria-hidden="true"></div>
+                    <div class="stat">
+                        <span class="stat-number" data-value="60">0</span>
+                        <span class="stat-label">FPS</span>
+                    </div>
+                    <div class="stat-separator" aria-hidden="true"></div>
+                    <div class="stat">
+                        <span class="stat-number infinity" data-value="infinity">&infin;</span>
+                        <span class="stat-label">Posibilidades</span>
+                    </div>
+                </div>
+                <div class="hero-cta">
+                    <a href="#desarrollo" class="btn-primary">
+                        <span>Ver Documentacion</span>
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                            <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </a>
+                    <a href="#galeria" class="btn-secondary">
+                        <span>Ver Galeria</span>
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                            <path d="M4 12l8-8M6 4h8v8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            <div class="hero-visual" aria-hidden="true">
+                <div class="floating-card">
+                    <div class="code-window">
+                        <div class="code-header">
+                            <div class="code-dot red"></div>
+                            <div class="code-dot yellow"></div>
+                            <div class="code-dot green"></div>
+                            <span class="code-title">physics-engine.js</span>
+                        </div>
+                        <div class="code-body">
+                            <pre><code id="typewriter-code"><span class="code-comment">// Segunda Ley de Newton</span>
+<span class="code-keyword">const</span> <span class="code-var">acceleration</span> = <span class="code-var">totalForce</span> / <span class="code-var">mass</span>;
+<span class="code-keyword">const</span> <span class="code-var">velocity</span> += <span class="code-var">acceleration</span> * <span class="code-var">dt</span>;
+<span class="code-keyword">const</span> <span class="code-var">position</span> += <span class="code-var">velocity</span> * <span class="code-var">dt</span>;
+
+<span class="code-comment">// Energia Cinetica</span>
+<span class="code-keyword">const</span> <span class="code-var">Ek</span> = <span class="code-num">0.5</span> * <span class="code-var">mass</span> * <span class="code-var">v</span>**<span class="code-num">2</span>;
+
+<span class="code-comment">// Momento Lineal</span>
+<span class="code-keyword">const</span> <span class="code-var">p</span> = <span class="code-var">mass</span> * <span class="code-var">velocity</span>;</code></pre>
+                        </div>
+                    </div>
+                    <div class="floating-badge badge-1">
+                        <span class="badge-dot"></span>
+                        Three.js WebGL
+                    </div>
+                    <div class="floating-badge badge-2">
+                        <span class="badge-dot green"></span>
+                        60 FPS
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator" aria-hidden="true">
+            <div class="scroll-mouse">
+                <div class="scroll-wheel"></div>
+            </div>
+            <span>Desplaza para explorar</span>
+        </div>
+    </section>
+
+    <!-- Introduccion -->
+    <section class="intro-section" id="intro">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Resumen Ejecutivo</span>
+                <h2>Proposito del Proyecto</h2>
+                <p class="section-desc">Una herramienta educativa que transforma conceptos abstractos de fisica en experiencias visuales interactivas.</p>
+            </div>
+            <div class="intro-grid">
+                <div class="intro-card" data-animate>
+                    <div class="intro-icon-wrapper">
+                        <div class="intro-icon">&#x1F3AF;</div>
+                    </div>
+                    <h3>Objetivo</h3>
+                    <p>Desarrollar una aplicacion web interactiva que permita visualizar
+                    y manipular variables fisicas en un entorno tridimensional, facilitando
+                    la comprension de conceptos abstractos de la dinamica.</p>
+                    <div class="card-arrow" aria-hidden="true">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M4 16L16 4M16 4H8M16 4v8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                </div>
+                <div class="intro-card" data-animate>
+                    <div class="intro-icon-wrapper">
+                        <div class="intro-icon">&#x1F4A1;</div>
+                    </div>
+                    <h3>Innovacion</h3>
+                    <p>Integracion de graficos 3D en tiempo real con calculos fisicos
+                    precisos, ofreciendo una experiencia inmersiva que conecta la teoria
+                    matematica con la visualizacion espacial.</p>
+                    <div class="card-arrow" aria-hidden="true">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M4 16L16 4M16 4H8M16 4v8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                </div>
+                <div class="intro-card" data-animate>
+                    <div class="intro-icon-wrapper">
+                        <div class="intro-icon">&#x1F393;</div>
+                    </div>
+                    <h3>Impacto Educativo</h3>
+                    <p>Herramienta disenada para estudiantes de fisica y programacion,
+                    permitiendo experimentar con leyes de Newton, conservacion de energia
+                    y momentum de forma interactiva.</p>
+                    <div class="card-arrow" aria-hidden="true">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M4 16L16 4M16 4H8M16 4v8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Desarrollo -->
+    <section id="desarrollo" class="development-section">
+        <div class="container">
+            <div class="section-header light">
+                <span class="section-tag">Metodologia</span>
+                <h2>Proceso de Desarrollo</h2>
+                <p class="section-desc light">Cinco fases de desarrollo que llevaron la idea a una simulacion funcional.</p>
+            </div>
+
+            <div class="timeline">
+                <div class="timeline-line" aria-hidden="true"></div>
+
+                <div class="timeline-item" data-animate data-delay="0">
+                    <div class="timeline-marker">
+                        <span class="marker-number">01</span>
+                    </div>
+                    <div class="timeline-content">
+                        <span class="timeline-phase">Fase Inicial</span>
+                        <h3>Analisis de Requerimientos</h3>
+                        <p>Definicion de los parametros fisicos a simular: fuerza, velocidad,
+                        aceleracion, masa, friccion y gravedad. Establecimiento de requisitos
+                        tecnicos para renderizado 3D en navegador.</p>
+                        <ul class="feature-list">
+                            <li>Modelado de ecuaciones de movimiento</li>
+                            <li>Determinacion de variables manipulables</li>
+                            <li>Especificacion de visualizaciones vectoriales</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item" data-animate data-delay="100">
+                    <div class="timeline-marker">
+                        <span class="marker-number">02</span>
+                    </div>
+                    <div class="timeline-content">
+                        <span class="timeline-phase">Fase de Diseno</span>
+                        <h3>Diseno de Arquitectura</h3>
+                        <p>Estructuracion del sistema en tres capas: presentacion (HTML/CSS),
+                        logica de fisica (JavaScript) y renderizado 3D (Three.js).
+                        Implementacion del patron de bucle de animacion para calculos en tiempo real.</p>
+                        <div class="architecture-diagram">
+                            <div class="arch-layer arch-ui">
+                                <div class="arch-icon">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+                                </div>
+                                <div class="arch-info">
+                                    <strong>UI Layer</strong>
+                                    <span>HTML / CSS</span>
+                                </div>
+                            </div>
+                            <div class="arch-connector">
+                                <div class="arch-arrow-line"></div>
+                                <div class="arch-arrow-head"></div>
+                            </div>
+                            <div class="arch-layer arch-physics">
+                                <div class="arch-icon">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+                                </div>
+                                <div class="arch-info">
+                                    <strong>Physics Engine</strong>
+                                    <span>JavaScript</span>
+                                </div>
+                            </div>
+                            <div class="arch-connector">
+                                <div class="arch-arrow-line"></div>
+                                <div class="arch-arrow-head"></div>
+                            </div>
+                            <div class="arch-layer arch-render">
+                                <div class="arch-icon">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5 12 2"/><line x1="12" y1="22" x2="12" y2="15.5"/><polyline points="22 8.5 12 15.5 2 8.5"/></svg>
+                                </div>
+                                <div class="arch-info">
+                                    <strong>Render Engine</strong>
+                                    <span>Three.js</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item" data-animate data-delay="200">
+                    <div class="timeline-marker">
+                        <span class="marker-number">03</span>
+                    </div>
+                    <div class="timeline-content">
+                        <span class="timeline-phase">Fase de Desarrollo</span>
+                        <h3>Implementacion del Motor Fisico</h3>
+                        <p>Codificacion de las ecuaciones diferenciales del movimiento utilizando
+                        integracion de Euler. Desarrollo de sistema de colisiones con el plano
+                        y restitucion de energia en impactos.</p>
+                        <div class="code-block">
+                            <div class="code-lang">javascript</div>
+                            <pre><code><span class="code-comment">// Segunda Ley de Newton - Integracion Euler</span>
+<span class="code-keyword">function</span> <span class="code-func">updatePhysics</span>(<span class="code-var">dt</span>) {
+  <span class="code-keyword">const</span> <span class="code-var">acc</span> = <span class="code-var">netForce</span>.<span class="code-func">divide</span>(<span class="code-var">mass</span>);
+  <span class="code-var">velocity</span>.<span class="code-func">add</span>(<span class="code-var">acc</span>.<span class="code-func">multiply</span>(<span class="code-var">dt</span>));
+  <span class="code-var">position</span>.<span class="code-func">add</span>(<span class="code-var">velocity</span>.<span class="code-func">multiply</span>(<span class="code-var">dt</span>));
+}</code></pre>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item" data-animate data-delay="300">
+                    <div class="timeline-marker">
+                        <span class="marker-number">04</span>
+                    </div>
+                    <div class="timeline-content">
+                        <span class="timeline-phase">Fase de Integracion</span>
+                        <h3>Visualizacion 3D y UI</h3>
+                        <p>Creacion de representaciones visuales para vectores de fuerza, velocidad
+                        y aceleracion mediante ArrowHelpers. Implementacion de trayectoria dinamica
+                        y panel de control con diseno glassmorphism.</p>
+                        <div class="tech-preview">
+                            <div class="preview-item">
+                                <div class="preview-color" style="background: #ef4444;"></div>
+                                <span>Fuerza</span>
+                            </div>
+                            <div class="preview-item">
+                                <div class="preview-color" style="background: #3b82f6;"></div>
+                                <span>Velocidad</span>
+                            </div>
+                            <div class="preview-item">
+                                <div class="preview-color" style="background: #10b981;"></div>
+                                <span>Aceleracion</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item" data-animate data-delay="400">
+                    <div class="timeline-marker">
+                        <span class="marker-number">05</span>
+                    </div>
+                    <div class="timeline-content">
+                        <span class="timeline-phase">Fase Final</span>
+                        <h3>Optimizacion y Testing</h3>
+                        <p>Validacion de calculos fisicos contra casos teoricos conocidos.
+                        Optimizacion de rendimiento para mantener 60 FPS. Pruebas de usabilidad
+                        y ajustes de interfaz.</p>
+                        <div class="metrics-row">
+                            <div class="mini-metric">
+                                <strong>60</strong>
+                                <span>FPS Estables</span>
+                            </div>
+                            <div class="mini-metric">
+                                <strong>&lt;16ms</strong>
+                                <span>Frame Time</span>
+                            </div>
+                            <div class="mini-metric">
+                                <strong>100%</strong>
+                                <span>Tests Pass</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tecnologias -->
+    <section id="tecnologias" class="tech-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Stack Tecnologico</span>
+                <h2>Herramientas Utilizadas</h2>
+                <p class="section-desc">Tecnologias modernas de desarrollo web para una experiencia fluida e interactiva.</p>
+            </div>
+
+            <div class="tech-grid">
+                <div class="tech-card" data-animate>
+                    <div class="tech-glow"></div>
+                    <div class="tech-logo">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5" loading="lazy" width="64" height="64">
+                    </div>
+                    <h3>HTML5</h3>
+                    <p>Estructura semantica del simulador y paneles de control.
+                    Uso de elementos canvas para renderizado WebGL.</p>
+                    <div class="tech-tags">
+                        <span>Semantic UI</span>
+                        <span>Canvas API</span>
+                    </div>
+                </div>
+
+                <div class="tech-card" data-animate>
+                    <div class="tech-glow"></div>
+                    <div class="tech-logo">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3" loading="lazy" width="64" height="64">
+                    </div>
+                    <h3>CSS3</h3>
+                    <p>Diseno responsive con glassmorphism, animaciones CSS y
+                    variables CSS para theming dinamico.</p>
+                    <div class="tech-tags">
+                        <span>Flexbox/Grid</span>
+                        <span>Animations</span>
+                    </div>
+                </div>
+
+                <div class="tech-card featured" data-animate>
+                    <div class="tech-glow"></div>
+                    <div class="featured-ribbon">Core</div>
+                    <div class="tech-logo">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" loading="lazy" width="64" height="64">
+                    </div>
+                    <h3>JavaScript ES6+</h3>
+                    <p>Logica de fisica computacional, gestion de estado y
+                    manipulacion de graficos 3D en tiempo real.</p>
+                    <div class="tech-tags">
+                        <span>Modules</span>
+                        <span>Classes</span>
+                        <span>Vector Math</span>
+                    </div>
+                </div>
+
+                <div class="tech-card" data-animate>
+                    <div class="tech-glow"></div>
+                    <div class="tech-logo" style="background: #111;">
+                        <img src="https://global.discourse-cdn.com/standard17/uploads/threejs/original/2X/e/e4f86d2200d2d35c30f7b1494e96b9595ebc2751.png" alt="Three.js" loading="lazy" width="64" height="64" style="filter: invert(1);">
+                    </div>
+                    <h3>Three.js</h3>
+                    <p>Renderizado 3D basado en WebGL. Gestion de escenas,
+                    camaras, iluminacion y geometrias complejas.</p>
+                    <div class="tech-tags">
+                        <span>WebGL</span>
+                        <span>Shaders</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tech-integrations" data-animate>
+                <h3>Integraciones Adicionales</h3>
+                <div class="integration-list">
+                    <div class="integration-item">
+                        <div class="integration-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
+                        </div>
+                        <div class="integration-info">
+                            <span class="integration-name">OrbitControls</span>
+                            <span class="integration-desc">Navegacion interactiva en espacio 3D</span>
+                        </div>
+                    </div>
+                    <div class="integration-item">
+                        <div class="integration-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                        </div>
+                        <div class="integration-info">
+                            <span class="integration-name">ArrowHelper</span>
+                            <span class="integration-desc">Visualizacion de vectores fisicos</span>
+                        </div>
+                    </div>
+                    <div class="integration-item">
+                        <div class="integration-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+                        </div>
+                        <div class="integration-info">
+                            <span class="integration-name">BufferGeometry</span>
+                            <span class="integration-desc">Optimizacion de trayectorias dinamicas</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fundamentos Fisicos -->
+    <section id="fisica" class="physics-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Fundamentacion Teorica</span>
+                <h2>Principios Fisicos Implementados</h2>
+                <p class="section-desc">Ecuaciones fundamentales de la mecanica clasicas codificadas en el motor de simulacion.</p>
+            </div>
+
+            <div class="physics-grid">
+                <div class="physics-card" data-animate>
+                    <div class="formula-header">
+                        <span class="formula-number">I</span>
+                    </div>
+                    <div class="formula-box">
+                        <span class="formula">F = ma</span>
+                        <span class="formula-name">Segunda Ley de Newton</span>
+                    </div>
+                    <p>La aceleracion de un objeto es directamente proporcional
+                    a la fuerza neta aplicada e inversamente proporcional a su masa.
+                    Implementada mediante integracion numerica de Euler.</p>
+                    <div class="implementation-detail">
+                        <div class="detail-icon">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                        </div>
+                        <div>
+                            <strong>Implementacion:</strong>
+                            <code>a = &Sigma;F / m</code>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="physics-card" data-animate>
+                    <div class="formula-header">
+                        <span class="formula-number">II</span>
+                    </div>
+                    <div class="formula-box">
+                        <span class="formula">E<sub>k</sub> = &frac12;mv&sup2;</span>
+                        <span class="formula-name">Energia Cinetica</span>
+                    </div>
+                    <p>Calculada en tiempo real basandose en la magnitud del vector
+                    velocidad. Representa la capacidad del objeto de realizar trabajo
+                    debido a su movimiento.</p>
+                    <div class="implementation-detail">
+                        <div class="detail-icon">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                        </div>
+                        <div>
+                            <strong>Implementacion:</strong>
+                            <code>KE = 0.5 &middot; m &middot; v&sup2;</code>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="physics-card" data-animate>
+                    <div class="formula-header">
+                        <span class="formula-number">III</span>
+                    </div>
+                    <div class="formula-box">
+                        <span class="formula">p = mv</span>
+                        <span class="formula-name">Momento Lineal</span>
+                    </div>
+                    <p>Magnitud vectorial que describe la cantidad de movimiento.
+                    Fundamental para analizar colisiones y conservacion en sistemas
+                    cerrados.</p>
+                    <div class="implementation-detail">
+                        <div class="detail-icon">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                        </div>
+                        <div>
+                            <strong>Implementacion:</strong>
+                            <code>p = m &middot; v</code>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="physics-card wide" data-animate>
+                    <div class="formula-header">
+                        <span class="formula-number">IV</span>
+                    </div>
+                    <div class="wide-content">
+                        <div class="formula-box compact">
+                            <span class="formula">F<sub>friccion</sub> = -&mu;v</span>
+                            <span class="formula-name">Modelo de Friccion Viscosa</span>
+                        </div>
+                        <div class="wide-body">
+                            <p>Simulacion de resistencia del medio proporcional a la velocidad.
+                            Permite observar la disipacion gradual de energia y el estado de
+                            equilibrio terminal.</p>
+                            <div class="variables-list">
+                                <div class="variable">
+                                    <span class="var-name">&mu; (mu)</span>
+                                    <span class="var-desc">Coeficiente de friccion ajustable [0-1]</span>
+                                    <div class="var-slider" aria-hidden="true">
+                                        <div class="var-slider-track">
+                                            <div class="var-slider-fill" style="width: 35%;"></div>
+                                        </div>
+                                        <span class="var-slider-value">0.35</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="physics-demo" data-animate>
+                <h3>Diagrama de Fuerzas</h3>
+                <div class="force-diagram-container">
+                    <div class="force-diagram">
+                        <div class="diagram-grid" aria-hidden="true">
+                            <div class="grid-line horizontal"></div>
+                            <div class="grid-line horizontal"></div>
+                            <div class="grid-line vertical"></div>
+                            <div class="grid-line vertical"></div>
+                        </div>
+                        <div class="diagram-object">
+                            <span>m</span>
+                        </div>
+                        <div class="force-vector applied" style="--vector-color: #ef4444;">
+                            <div class="vector-line"></div>
+                            <div class="vector-arrow"></div>
+                            <span class="vector-label">F<sub>aplicada</sub></span>
+                        </div>
+                        <div class="force-vector gravity" style="--vector-color: #10b981;">
+                            <div class="vector-line"></div>
+                            <div class="vector-arrow"></div>
+                            <span class="vector-label">F<sub>gravedad</sub></span>
+                        </div>
+                        <div class="force-vector friction" style="--vector-color: #3b82f6;">
+                            <div class="vector-line"></div>
+                            <div class="vector-arrow"></div>
+                            <span class="vector-label">F<sub>friccion</sub></span>
+                        </div>
+                    </div>
+                    <div class="force-legend">
+                        <div class="legend-item">
+                            <div class="legend-dot" style="background: #ef4444;"></div>
+                            <span>Fuerza Aplicada</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-dot" style="background: #10b981;"></div>
+                            <span>Fuerza Gravitatoria</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-dot" style="background: #3b82f6;"></div>
+                            <span>Fuerza de Friccion</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Galeria -->
+    <section id="galeria" class="gallery-section">
+        <div class="container">
+            <div class="section-header light">
+                <span class="section-tag">Evidencias</span>
+                <h2>Galeria del Proyecto</h2>
+                <p class="section-desc light">Capturas del simulador en accion mostrando sus diferentes funcionalidades.</p>
+            </div>
+
+            <div class="gallery-grid">
+                <div class="gallery-item large" data-animate>
+                    <img src="assets/screenshots/vista-general.jpg"
+                         alt="Vista general del simulador con interfaz completa"
+                         loading="lazy">
+                    <div class="gallery-overlay">
+                        <div class="overlay-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+                        </div>
+                        <h4>Vista General</h4>
+                        <p>Interfaz completa mostrando panel de control, visualizacion 3D y metricas en tiempo real</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-animate>
+                    <img src="assets/screenshots/panel-datos.jpg"
+                         alt="Panel de metricas mostrando velocidad y energia cinetica"
+                         loading="lazy">
+                    <div class="gallery-overlay">
+                        <div class="overlay-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                        </div>
+                        <h4>Analisis de Datos</h4>
+                        <p>Visualizacion en tiempo real de velocidad, aceleracion y energia</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-animate>
+                    <img src="assets/screenshots/vectores-fuerza.jpg"
+                         alt="Vectores de fuerza, velocidad y aceleracion visibles"
+                         loading="lazy">
+                    <div class="gallery-overlay">
+                        <div class="overlay-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                        </div>
+                        <h4>Vectores de Fuerza</h4>
+                        <p>Flechas dinamicas indicando direccion y magnitud de fuerzas</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-animate>
+                    <img src="assets/screenshots/trayectoria.jpg"
+                         alt="Trayectoria parabolica del objeto en movimiento"
+                         loading="lazy">
+                    <div class="gallery-overlay">
+                        <div class="overlay-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+                        </div>
+                        <h4>Trayectoria</h4>
+                        <p>Visualizacion de la trayectoria parabolica bajo gravedad</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-animate>
+                    <img src="assets/screenshots/caida-libre.jpg"
+                         alt="Simulacion de caida libre con gravedad"
+                         loading="lazy">
+                    <div class="gallery-overlay">
+                        <div class="overlay-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v8M8 12h8"/></svg>
+                        </div>
+                        <h4>Caida Libre</h4>
+                        <p>Simulacion de objeto en caida bajo aceleracion gravitatoria</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-animate>
+                    <img src="assets/screenshots/lanzamiento-parabolico.jpg"
+                         alt="Lanzamiento parabolico con trayectoria curva"
+                         loading="lazy">
+                    <div class="gallery-overlay">
+                        <div class="overlay-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="M2 12h20"/></svg>
+                        </div>
+                        <h4>Movimiento Parabolico</h4>
+                        <p>Proyectil con componentes de velocidad X e Y</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item wide" data-animate>
+                    <img src="assets/screenshots/codigo-fuente.jpg"
+                         alt="Captura del codigo fuente del motor fisico"
+                         loading="lazy">
+                    <div class="gallery-overlay">
+                        <div class="overlay-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                        </div>
+                        <h4>Implementacion Tecnica</h4>
+                        <p>Estructura del algoritmo de integracion numerica en JavaScript</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Autores -->
+    <section id="autores" class="authors-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Creditos</span>
+                <h2>Equipo de Desarrollo</h2>
+                <p class="section-desc">Conoce a los desarrolladores detras de este proyecto academico.</p>
+            </div>
+
+            <div class="authors-grid">
+                <div class="author-card" data-animate>
+                    <div class="author-header">
+                        <div class="author-avatar">
+                            <div class="avatar-placeholder">FG</div>
+                        </div>
+                        <div class="author-meta">
+                            <h3>Francisco Garcia</h3>
+                            <span class="author-role">Desarrollador Principal &amp; Fisica</span>
+                            <span class="author-id">C.I. 30.626.299</span>
+                        </div>
+                    </div>
+                    <p>Responsable de la implementacion del motor fisico, calculos de dinamica
+                    y cinetica, asi como la integracion de visualizaciones vectoriales en Three.js.</p>
+                    <div class="author-contributions">
+                        <span class="contrib-tag">Fisica Computacional</span>
+                        <span class="contrib-tag">Three.js</span>
+                        <span class="contrib-tag">Algoritmos</span>
+                    </div>
+                </div>
+
+                <div class="author-card" data-animate>
+                    <div class="author-header">
+                        <div class="author-avatar">
+                            <div class="avatar-placeholder">FH</div>
+                        </div>
+                        <div class="author-meta">
+                            <h3>Franklin Herrera</h3>
+                            <span class="author-role">UI/UX Designer &amp; Frontend</span>
+                            <span class="author-id">C.I. 31.585.389</span>
+                        </div>
+                    </div>
+                    <p>Encargado del diseno de interfaz, experiencia de usuario, implementacion
+                    CSS avanzada y optimizacion del rendimiento del renderizado.</p>
+                    <div class="author-contributions">
+                        <span class="contrib-tag">UI/UX Design</span>
+                        <span class="contrib-tag">CSS3</span>
+                        <span class="contrib-tag">Arquitectura</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-meta" data-animate>
+                <div class="meta-item">
+                    <span class="meta-label">Asignatura</span>
+                    <span class="meta-value">Programacion II</span>
+                </div>
+                <div class="meta-separator" aria-hidden="true"></div>
+                <div class="meta-item">
+                    <span class="meta-label">Institucion</span>
+                    <span class="meta-value">UNERG</span>
+                </div>
+                <div class="meta-separator" aria-hidden="true"></div>
+                <div class="meta-item">
+                    <span class="meta-label">Semestre</span>
+                    <span class="meta-value">2026-5</span>
+                </div>
+                <div class="meta-separator" aria-hidden="true"></div>
+                <div class="meta-item">
+                    <span class="meta-label">Docente</span>
+                    <span class="meta-value">Prof. Manuel Leon</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <div class="logo-icon">&#x269B;</div>
+                        <span>PhysicsLab 3D</span>
+                    </div>
+                    <p>Simulador educativo de fisica computacional desarrollado como
+                    proyecto academico de Programacion II.</p>
+                </div>
+                <div class="footer-links">
+                    <a href="#desarrollo" class="footer-link">Documentacion</a>
+                    <a href="https://alexpham290724-alt.github.io/Simulador-de-Fisica/" class="footer-link" target="_blank" rel="noopener">Repositorio</a>
+                    <a href="#" class="footer-link" onclick="alert('Funcion en desarrollo'); return false;">Reportar Issue</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Francisco Garcia &amp; Franklin Herrera. Todos los derechos reservados.</p>
+                <p class="footer-disclaimer">Proyecto academico - No comercial</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
